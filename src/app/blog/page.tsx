@@ -13,7 +13,7 @@ const { blog_folder, pagination } = config.settings;
 // for all regular pages
 const Posts = () => {
   const postIndex: Post = getListPage(`${blog_folder}/_index.md`);
-  const { title, meta_title, description, image } = postIndex.frontmatter;
+  const { title_1, meta_title, description, image } = postIndex.frontmatter;
   const posts: Post[] = getSinglePage(blog_folder);
   const allCategories = getAllTaxonomy(blog_folder, "categories");
   const categories = getTaxonomy(blog_folder, "categories");
@@ -25,12 +25,12 @@ const Posts = () => {
   return (
     <>
       <SeoMeta
-        title={title}
+        title={title_1}
         meta_title={meta_title}
         description={description}
         image={image}
       />
-      <PageHeader title={postIndex.frontmatter.title} />
+      <PageHeader title={postIndex.frontmatter.title_1} />
       <section className="section">
         <div className="container">
           <div className="row gx-5">
