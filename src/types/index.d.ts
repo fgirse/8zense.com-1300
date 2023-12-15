@@ -1,6 +1,10 @@
 export type RegularPage = {
   frontmatter: {
-    title: string;
+    title_1: string;
+    title_2: string;
+    title_3: string;
+    index_1: string;
+    index_2: string;
     image?: string;
     description?: string;
     meta_title?: string;
@@ -13,7 +17,9 @@ export type RegularPage = {
 
 export type Post = {
   frontmatter: {
-    title: string;
+    title_1: string;
+    title_2: string;
+    title_3: string;
     meta_title?: string;
     description?: string;
     image?: string;

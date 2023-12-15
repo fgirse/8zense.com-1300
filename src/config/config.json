@@ -5,11 +5,11 @@
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
-    "logo_darkmode": "/images/logo-darkmode.png",
-    "logo_width": "150",
-    "logo_height": "27",
-    "logo_text": "Nextplate"
+    "logo": "/images/LogoEZ.png",
+    "logo_darkmode": "/images/LogoEZ.png",
+    "logo_width": "48",
+    "logo_height": "48",
+    "logo_text": "8zense.com"
   },
 
   "settings": {

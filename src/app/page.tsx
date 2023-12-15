@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ImageFallback from "@/helpers/ImageFallback";
 import { getListPage } from "@/lib/contentParser";
 import { markdownify } from "@/lib/utils/textConverter";
@@ -17,25 +18,51 @@ const Home = () => {
     banner,
     features,
   }: {
-    banner: { title: string; image: string; content?: string; button?: Button };
+    banner: { title_1: string; title_2: string; title_3: string; index_1: string; index_2: string; image: string; content?: string; button?: Button };
     features: Feature[];
   } = frontmatter;
 
   return (
     <>
       <SeoMeta />
-      <section className="section pt-14">
+      <section className="bg-gradient-to-b from-gray-900 via-slate-900 to-slate-400">
         <div className="container">
           <div className="row justify-center">
-            <div className="mb-16 text-center lg:col-7">
-              <h1
-                className="mb-4"
-                dangerouslySetInnerHTML={markdownify(banner.title)}
+            <div className="mb-16 lg:col-7">
+
+<div className="py-2 grid grid-cols-10 grid-rows-5 gap-4">
+    <div className="col-span-6 row-span-2">
+    <h1
+                className="inline-block text-transparent bg-clip-text text-left mb-0 text-4xl uppercase bg-gradient-to-b from-yellow-500 via-amber-500 to-slate-600"
+                dangerouslySetInnerHTML={markdownify(banner.title_1)}
               />
-              <p
-                className="mb-8"
+    </div>
+    <div className="col-span-6 row-span-3 col-start-1 row-start-3">
+    <h1
+                className={"relative -top-14  text-[5rem] inline-block text-transparent bg-clip-text text-left mb-0 uppercase bg-gradient-to-b from-yellow-500 via-orange-300  to-slate-600"}
+                dangerouslySetInnerHTML={markdownify(banner.title_2)}
+              />
+    </div>
+    <div className="col-span-4 row-span-5 col-start-9 row-start-1"> <p
+                className="py-2  text-right text-[.60rem] text-slate-200"
                 dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
               />
+              <div className="relative left-16 py-1 flex flex-col bg-orange-400 rounded-full w-8 h-8 leading-0">
+              <h1
+                className="text-[.50rem] inline-block text-transparent bg-clip-text text-center mb-0  uppercase bg-gradient-to-b from-gray-50  via-white to-slate-600"
+                dangerouslySetInnerHTML={markdownify(banner.index_1)}
+              />
+              <h1
+                className=" text-[.50rem] relative inline-block text-transparent bg-clip-text text-center uppercase bg-gradient-to-b from-gray-50  via-white to-slate-600"
+                dangerouslySetInnerHTML={markdownify(banner.index_2)}
+              />
+              </div>
+              </div>
+</div>
+    
+           
+             
+             
               {banner.button!.enable && (
                 <Link className="btn btn-primary" href={banner.button!.link}>
                   {banner.button!.label}
@@ -47,7 +74,7 @@ const Home = () => {
                 <ImageFallback
                   src={banner.image}
                   className="mx-auto"
-                  width="800"
+                  width="600"
                   height="420"
                   alt="banner image"
                   priority
@@ -55,6 +82,12 @@ const Home = () => {
               </div>
             )}
           </div>
+          <div className="relative -top-6 w-36 h-36 mx-auto flex flex-col items-center">
+              <Image src="/images/LogoEZ.png" alt="Logo" width="250" height="250" className="shadow-2xl shadow-gray-100 rounded-xl" />
+
+          </div>
+
+          
         </div>
       </section>
 

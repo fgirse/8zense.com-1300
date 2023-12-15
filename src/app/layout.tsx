@@ -4,8 +4,15 @@ import theme from "@/config/theme.json";
 import TwSizeIndicator from "@/helpers/TwSizeIndicator";
 import Footer from "@/partials/Footer";
 import Header from "@/partials/Header";
-import Providers from "@/partials/Providers";
+import { Roboto_Condensed } from 'next/font/google'
 import "@/styles/main.scss";
+import { ClerkProvider } from "@clerk/nextjs";
+
+const roboto_c = Roboto_Condensed({
+  subsets: ['latin'],
+  display: 'swap',
+})
+0
 
 export default function RootLayout({
   children,
@@ -17,6 +24,7 @@ export default function RootLayout({
   const sf = theme.fonts.font_family.secondary;
 
   return (
+    <ClerkProvider>
     <html suppressHydrationWarning={true} lang="en">
       <head>
         {/* responsive meta */}
@@ -28,7 +36,7 @@ export default function RootLayout({
         {/* favicon */}
         <link rel="shortcut icon" href={config.site.favicon} />
         {/* theme meta */}
-        <meta name="theme-name" content="nextplate" />
+        <meta name="8zense.com" content="nextplate" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta
           name="theme-color"
@@ -57,13 +65,14 @@ export default function RootLayout({
 
       <body suppressHydrationWarning={true}>
         <TwSizeIndicator />
-        <Providers>
+        
           <Header />
           <SearchModal />
           <main>{children}</main>
           <Footer />
-        </Providers>
+        
       </body>
     </html>
+    </ClerkProvider>
   );
 }
