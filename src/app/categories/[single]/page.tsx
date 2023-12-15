@@ -38,7 +38,7 @@ const CategorySingle = ({ params }: { params: { single: string } }) => {
           <div className="row">
             {filterByCategories.map((post: Post, index: number) => (
               <div className="mb-14 md:col-6 lg:col-4" key={index}>
-                <BlogCard data={post} />
+                < data={post} />;
               </div>
             ))}
           </div>
